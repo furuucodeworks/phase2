@@ -12,7 +12,7 @@ function getTodayCheckinGuests(reservations) {
     return reservations.filter((r) => r.checkin === today);
 }
 ;
-function todayGuestPeopleTotal() {
+function todayGuestPeopleTotal(reservations) {
     const today = getTodayString();
     return reservations
         .filter((r) => r.checkin === today)
@@ -27,4 +27,4 @@ const reservations = [
 ];
 const todayGuests = getTodayCheckinGuests(reservations);
 console.log("本日のチェックインのお客様は", todayGuests);
-console.log(todayGuestPeopleTotal);
+console.log(todayGuestPeopleTotal(reservations));
