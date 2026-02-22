@@ -1,13 +1,16 @@
+type DataString = `${string}-${string}-${string}`
 
 type Reservation = {
+    id: number;
     name: string;
-    checkin: string;
-    checkout: string;
-    tel: string;
-    people: number;
+    checkin: DataString;
+    checkout: DataString;
+    tel: string; //例:　"090-1234-5678"
+    people: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 ;
 };
 
-function getTodayString(): string {
+
+function getTodayString(): DataString {
     const today = new Date();
     const y = today.getFullYear();
     const m = String(today.getMonth() + 1).padStart(2,"0");
@@ -29,9 +32,9 @@ function todayGuestPeopleTotal(reservations: Reservation[]): number {
 
 const today = getTodayString();
 const reservations: Reservation[] = [
-  { name: "山田太郎", checkin: today, checkout: "2025-02-22", tel: "090-1234-5678", people: 2 },
-  { name: "佐藤花子", checkin: "2025-02-19", checkout: "2025-02-21", tel: "080-9876-5432", people: 1 },
-  { name: "鈴木一郎", checkin: today, checkout: "2025-02-23", tel: "070-1111-2222", people: 3 },
+  { id: 1, name: "山田太郎", checkin: today, checkout: "2025-02-22", tel: "090-1234-5678", people: 2 },
+  { id: 2, name: "佐藤花子", checkin: "2025-02-19", checkout: "2025-02-21", tel: "080-9876-5432", people: 1 },
+  { id: 3, name: "鈴木一郎", checkin: today, checkout: "2025-02-23", tel: "070-1111-2222", people: 3 },
 ];
 
 const todayGuests = getTodayCheckinGuests(reservations);

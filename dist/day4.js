@@ -27,4 +27,4 @@ const reservations = [
 ];
 const todayGuests = getTodayCheckinGuests(reservations);
 console.log("本日のチェックインのお客様は", todayGuests);
-console.log(todayGuestPeopleTotal(reservations));
+console.log(`本日のチェックイン人数は${todayGuestPeopleTotal(reservations)}人`);
